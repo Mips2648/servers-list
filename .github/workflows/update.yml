@@ -34,7 +34,7 @@ jobs:
           CENSYS_API_ID: ${{ secrets.CENSYS_API_ID }}
           CENSYS_API_SECRET: ${{ secrets.CENSYS_API_SECRET }}
           DOMAIN: ${{ secrets.DOMAIN }}
-        run: echo "52.19.11.94" > output.txt
+        run: python3 CloudFlair/cloudflair.py --censys-api-id "$CENSYS_API_ID" --censys-api-secret "$CENSYS_API_SECRET" "$DOMAIN" > output.txt || { echo "cloudflair.py finished"; exit 0; }
 
       - name: "grep output"
         run: |
