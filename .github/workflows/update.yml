@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "setup CloudFlair"
         run: |
@@ -47,8 +47,12 @@ jobs:
       - name: "commit change"
         run: |
           cd $GITHUB_WORKSPACE
-          git config --global user.email "actions@github.com"
-          git config --global user.name "Mips2648 action bot"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add ip
           git commit -m 'update list'
+          git push
+      - run: |
+          git add .
+          git commit -m "generated"
           git push
