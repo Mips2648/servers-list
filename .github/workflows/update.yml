@@ -38,4 +38,7 @@ jobs:
           CENSYS_API_SECRET: ${{ secrets.CENSYS_API_SECRET }}
           DOMAIN: ${{ secrets.DOMAIN }}
         run: |
-          echo "$DOMAIN"
+          git clone https://github.com/christophetd/CloudFlair.git
+          echo python3 --version
+          cd CloudFlair
+          python3 -m pip install -r requirements.txt
