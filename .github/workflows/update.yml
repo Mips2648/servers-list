@@ -5,7 +5,7 @@ name: update
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  schedule: 
+  schedule:
     - cron: "5 4 * * 0"
 
   # Allows you to run this workflow manually from the Actions tab
@@ -32,3 +32,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - shell: bash
+        env:
+          CENSYS_API_ID: ${{ secrets.CENSYS_API_ID }}
+          CENSYS_API_SECRET: ${{ secrets.CENSYS_API_SECRET }}
+          DOMAIN: ${{ secrets.DOMAIN }}
+        run: |
+          echo "$DOMAIN"
