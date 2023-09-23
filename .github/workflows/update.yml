@@ -52,7 +52,3 @@ jobs:
           git add ip
           git commit -m 'update list'
           git push
-      - run: |
-          git add .
-          git commit -m "generated"
-          git push
