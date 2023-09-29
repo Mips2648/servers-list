@@ -45,7 +45,7 @@ jobs:
           echo "=========="
           echo "clean result:"
           cat $GITHUB_WORKSPACE/ip
-          [ -s $GITHUB_WORKSPACE/ip ] || echo ("file is empty"; exit 1;)
+          [ -s $GITHUB_WORKSPACE/ip ] || (echo "file is empty"; exit 1;)
 
       - name: "commit change"
         run: |
